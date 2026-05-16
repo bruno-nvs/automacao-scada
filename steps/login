@@ -1,8 +1,19 @@
 module.exports = {
-  login(I) {
+
+  login(I, usuario, senha) {
+
     I.waitForElement('#username', 15);
-    I.fillField('#username', process.env.USUARIO_WEG);
-    I.fillField('#password', process.env.SENHA_WEG);
+
+    if (usuario) {
+      I.fillField('#username', usuario);
+    }
+
+    if (senha) {
+      I.fillField('#password', senha);
+    }
+
     I.click('#login_button');
+
   }
+
 };
